@@ -25,7 +25,7 @@ const TicketEditor = () => {
 
   useEffect(() => {
     client.get('theme').then((data) => {
-      setIsDarkMode(data.theme.theme.base === 'dark')
+      setIsDarkMode(data.theme.base === 'dark')
     })
   }, [client, isDarkMode])
 
