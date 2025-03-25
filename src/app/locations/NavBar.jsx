@@ -28,7 +28,7 @@ const NavBar = () => {
   }, [client, isDarkMode])
 
   useEffect(() => {
-    client.on('app.theme.changed', function(data){
+    client.on('theme.changed', function(data){
       console.log("** APP app.theme event", data.theme.base)
       setIsDarkMode(data.theme.base === 'dark')
     })

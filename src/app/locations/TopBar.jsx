@@ -1,8 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useClient } from '../hooks/useClient'
-import { useI18n } from '../hooks/useI18n'
-import { Grid, Row } from '@zendeskgarden/react-grid'
-import styled from 'styled-components'
 import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming'
 
 const TopBar = () => {
@@ -28,7 +25,7 @@ const TopBar = () => {
   }, [client, isDarkMode])
 
   useEffect(() => {
-    client.on('app.theme.changed', function(data){
+    client.on('theme.changed', function(data){
       console.log("** APP app.theme event", data.theme.base)
       setIsDarkMode(data.theme.base === 'dark')
     })

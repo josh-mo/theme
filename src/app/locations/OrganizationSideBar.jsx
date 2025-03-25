@@ -9,18 +9,6 @@ import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming'
 
 const OrganizationSideBar = () => {
   const client = useClient()
-  const { t } = useI18n()
-
-  const handleNewInstance = () => {
-    client.invoke('instances.create', {
-      location: 'modal',
-      url: import.meta.env.VITE_ZENDESK_LOCATION,
-      size: {
-        width: '650px',
-        height: '400px'
-      }
-    })
-  }
 
   useEffect(() => {
     client.invoke('resize', { width: '100%', height: '450px' })
@@ -42,7 +30,7 @@ const OrganizationSideBar = () => {
   }, [client, isDarkMode])
 
   useEffect(() => {
-    client.on('app.theme.changed', function(data){
+    client.on('theme.changed', function(data){
       console.log("** APP app.theme event", data.theme.base)
       setIsDarkMode(data.theme.base === 'dark')
     })
