@@ -7,7 +7,7 @@ import { XL } from '@zendeskgarden/react-typography'
 import styled from 'styled-components'
 import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming'
 
-const TicketSideBar = () => {
+const UserSideBar = () => {
   const client = useClient()
   const { t } = useI18n()
 
@@ -63,4 +63,4 @@ const GridContainer = styled(Grid)`
   gap: ${(props) => props.theme.space.sm};
 `
 
-export default TicketSideBar
+export default UserSideBar
